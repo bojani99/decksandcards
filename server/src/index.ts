@@ -1,15 +1,27 @@
 import express, { Request, Response } from "express";
+
 const app = express();
+
 import mongoose from "mongoose";
+
 const dotenv = require("dotenv");
+
 dotenv.config();
 
-import DeckModel from "./models/Deck";
+app.use(express.json());
+
+import Deck from "./models/Deck";
 
 const PORT = 5000;
 
-app.get("/decks", (req: Request, res: Response) => {
-  res.send("Dime majmun");
+app.post("/decks", async (req: Request, res: Response) => {
+  console.log(req.body);
+
+  const newDeck = new Deck({
+    title: req.body.title,
+  });
+  const createdDeck = await newDeck.save();
+  res.json(createdDeck);
 });
 mongoose.connect(process.env.MONGO_URI!).then(() => {
   console.log(`listening on port ${PORT}`);
