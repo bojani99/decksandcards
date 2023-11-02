@@ -1,0 +1,35 @@
+.deck-form{
+    background-color: gray;
+    height: 100vh;
+}
+
+  .decks{
+    display: grid;
+    width: 600px;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    padding-top: 40px;
+  }
+
+  .decks li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 120px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .decks li:hover {
+    background-color: #c7c7c7;
+    cursor: pointer;
+  }
+
+  .deck-title {
+    font-size: 20px;
+  }
+
