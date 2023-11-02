@@ -14,6 +14,7 @@
   }
 
   .decks li {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,4 +33,13 @@
   .deck-title {
     font-size: 20px;
   }
-
+  
+  .decks li button {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    color: red;
+    top:5px;
+    right: 5px;
+    font-size: 10px;
+  }
