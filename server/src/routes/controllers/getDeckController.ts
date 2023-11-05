@@ -1,8 +1,8 @@
-import express, { Request, Response } from "express";
-import DeckModel from "../../models/Deck";
-const app = express();
+import { Request, Response } from "express";
+import Deck from "../../models/Deck";
 
 export async function getDeckController(req: Request, res: Response) {
-  const decks = await DeckModel.find();
-  res.json(decks);
+  const { deckId } = req.params;
+  const deck = await Deck.findById(deckId);
+  res.json(deck);
 }

@@ -1,58 +1,44 @@
-.deck-form{
-    background-color: gray;
-    height: 100vh;
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-  .decks{
-    position: relative;
-    display: grid;
-    width: 600px;
-    margin: 0 auto;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 20px;
-    row-gap: 20px;
-    padding-top: 40px;
-  }
+.App form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
 
-  .decks li {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 120px;
-    border: 1px solid white;
-    background-color: white;
-    border-radius: 10px;
-  }
+.App h1 {
+  font-size: 32px;
+  text-align: center;
+}
 
-  .decks li:hover {
-    background-color: #c7c7c7;
-    cursor: pointer;
-  }
+.decks {
+  display: grid;
+  width: 600px;
+  margin: 0 auto;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  color: black;
+}
 
-  .deck-title {
-    font-size: 20px;
-  }
-  
-  .decks li button {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    color: red;
-    top:5px;
-    right: 5px;
-    font-size: 10px;
-  }
+.decks li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  background: white;
+  border: 1px solid white;
+  border-radius: 10px;
+}
 
-  form {
-    display: flex;
-    gap: 20px;
-    position: absolute;
-    top:20px;
-    left: 20px;
-  }
-
-  form label {
-    font-size: 20px
-  }
+.decks li button {
+  position: absolute;
+  font-size: 10px;
+  top: 5px;
+  right: 5px;
+}

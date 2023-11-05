@@ -1,5 +1,5 @@
-import { API_URL } from "./config";
-import { TDeck } from "./cardApi/getDecks";
+import { API_URL } from "../config";
+import { TDeck } from "../cardApi/getDecks";
 
 export async function createDeck(title: string): Promise<TDeck> {
   const response = await fetch(`${API_URL}/decks`, {
