@@ -1,47 +1,31 @@
-import express, { Request, Response } from "express";
-import Deck from "./models/Deck";
+import express from "express";
+import mongoose from "mongoose";
+import { getDeckController } from "./routes/controllers/getDeckController";
+import { createDeckController } from "./routes/controllers/createDeckController";
+import deleteDeckController from "./routes/controllers/deleteDeckController";
 const app = express();
 
 // Cors
 const cors = require("cors");
 app.use(cors());
 
-import mongoose from "mongoose";
+app.use(express.json());
 
 // Env
 const dotenv = require("dotenv");
 dotenv.config();
 
-app.use(express.json());
-
+// PORT
 const PORT = 5000;
 
 // Get Method
-
-app.get("/decks", async (req: Request, res: Response) => {
-  const decks = await Deck.find();
-  res.json(decks);
-});
+app.get("/decks", getDeckController);
 
 // Post method
-
-app.post("/decks", async (req: Request, res: Response) => {
-  console.log(req.body);
-
-  const newDeck = new Deck({
-    title: req.body.title,
-  });
-  const createdDeck = await newDeck.save();
-  res.json(createdDeck);
-});
+app.post("/decks", createDeckController);
 
 // Delete method
-
-app.delete("/decks/:deckId", async (req: Request, res: Response) => {
-  const deckId = req.params.deckId;
-  const deck = await Deck.findByIdAndDelete(deckId);
-  res.json(deck);
-});
+app.delete("/decks/:deckId", deleteDeckController);
 
 // Connecting mongoose database
 mongoose.connect(process.env.MONGO_URI!).then(() => {
